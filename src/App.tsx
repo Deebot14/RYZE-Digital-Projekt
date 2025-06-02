@@ -1,26 +1,21 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import FormComponent, { FormData } from './FormComponent'; // Import "FormData" from "FormComponent"
 
-function App() {
+/* Main wrapper component for the page
+ * Will be called by the form when submitted
+ * Logs the submitted data */
+const App: React.FC = () => {
+  const handleFormSave = (data: FormData) => {
+    console.log('Form submitted:', data);
+  };
+
+  // Render form and pass "onSave" 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={{ padding: '2rem' }}>
+      <h1>React Form</h1>
+      <FormComponent onSave={handleFormSave} /> 
     </div>
   );
-}
+};
 
 export default App;
