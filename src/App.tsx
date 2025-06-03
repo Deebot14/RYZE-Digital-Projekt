@@ -1,21 +1,67 @@
-import React from 'react';
-import FormComponent, { FormData } from './FormComponent'; // Import "FormData" from "FormComponent"
+import React, { JSX } from "react";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+  useLocation,
+} from "react-router-dom";
+import LoginPage from "./LoginPage";
+import DetailPage from "./DetailPage";
 
-/* Main wrapper component for the page
- * Will be called by the form when submitted
- * Logs the submitted data */
-const App: React.FC = () => {
-  const handleFormSave = (data: FormData) => {
-    console.log('Form submitted:', data);
-  };
+const isLoggedIn = () => !!localStorage.getItem("loggedInUser");
 
-  // Render form and pass "onSave" 
+function ProtectedRoute({ children }: { children: JSX.Element }) {
+  const location = useLocation();
+  if (!isLoggedIn()) {
+    return <Navigate to="/login" state={{ from: location }} replace />;
+  }
+  return children;
+}
+
+export default function App() {
   return (
-    <div style={{ padding: '2rem' }}>
-      <h1>React Form</h1>
-      <FormComponent onSave={handleFormSave} /> 
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Navigate to="/login" replace />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route
+          path="/detail"
+          element={
+            <ProtectedRoute>
+              <DetailPage />
+            </ProtectedRoute>
+          }
+        />
+        <Route path="*" element={<Navigate to="/login" replace />} />
+      </Routes>
+    </Router>
   );
-};
+}
 
-export default App;
+//*************************************************************************************
+// COMMENT the Upper code ↑↑ and UNCOMMENT the lower code ↓↓ to test the form component
+//*************************************************************************************
+
+// import React, { useState } from "react";
+// import FormComponent, { FormData } from "./FormComponent";
+
+// const FormTest: React.FC = () => {
+//   const [entries, setEntries] = useState<FormData[]>([]);
+
+//   const handleSave = (data: FormData) => {
+    
+//       setEntries((prev) => [...prev, data]);  
+//       console.log("New entry:", data);        
+    
+//   };
+
+//   return (
+//     <div style={{ padding: 20 }}>
+//       <h2>Test Form Component</h2>
+//       <FormComponent onSave={handleSave} />
+//     </div>
+//   );
+// };
+
+// export default FormTest;
