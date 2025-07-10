@@ -7,11 +7,11 @@ Once logged in with the correct credentials, users are redirected to a detail pa
 
 The application showcases:
 
-A login system using hardcoded credentials and localStorage for session simulation.
+- A login system using hardcoded credentials and localStorage for session simulation.
 
-A protected route mechanism that restricts access to certain pages unless the user is authenticated.
+- A protected route mechanism that restricts access to certain pages unless the user is authenticated.
 
-A form-driven UI that allows users to add or edit entries, with real-time validation and input management.
+- A form-driven UI that allows users to add or edit entries, with real-time validation and input management.
 
-Clean navigation between login and detail views using React Router.
+- Clean navigation between login and detail views using React Router.
 
