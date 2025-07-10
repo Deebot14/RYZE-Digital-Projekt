@@ -1,17 +1,22 @@
 # Project Overview
-This project was created as part of a task assignment from RYZE Digital company. It is a simple, fully functional React application that demonstrates basic user authentication, protected routing, and CRUD-like behavior using local state and localStorage.
+This project was developed as a task assignment from RYZE Digital. It is a simple yet fully functional React application demonstrating basic user authentication, protected routing, and CRUD-like behavior using local state and localStorage.
 
-## Programming languages/technologies: React, TypeScript
+## Programming Languages / Technologies
+React, TypeScript
 
-Once logged in with the correct credentials, users are redirected to a detail page where they can add, update, and view entries that consist of a title and date. The entries are managed in-memory and provide a basic demonstration of component-driven form handling, conditional rendering, and state management using React Hooks. Unauthorized users attempting to access protected routes are redirected to the login page.
+## Features
+- ### User Authentication:
+Implements a login system with hardcoded credentials and uses localStorage to simulate session persistence.
 
-The application showcases:
+- ### Protected Routes:
+Restricts access to certain pages unless the user is authenticated. Unauthorized users attempting to access protected routes are redirected to the login page.
 
-- A login system using hardcoded credentials and localStorage for session simulation.
+- ### CRUD-like Entry Management:
+After logging in, users are redirected to a detail page where they can add, update, and view entries consisting of a title and date. The entries are managed in-memory, showcasing form-driven UI with real-time validation and input management.
 
-- A protected route mechanism that restricts access to certain pages unless the user is authenticated.
+- ### State Management:
+Utilizes React Hooks for component-driven form handling, conditional rendering, and local state management.
 
-- A form-driven UI that allows users to add or edit entries, with real-time validation and input management.
-
-- Clean navigation between login and detail views using React Router.
+- ### Navigation:
+Clean and intuitive navigation between login and detail views using React Router.
 
