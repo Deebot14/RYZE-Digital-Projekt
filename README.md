@@ -1,4 +1,4 @@
-### Project Overview
+# Project Overview
 This project was created as part of a task assignment from RYZE Digital company. It is a simple, fully functional React application that demonstrates basic user authentication, protected routing, and CRUD-like behavior using local state and localStorage.
 
 ## Programming languages/technologies: React, TypeScript
